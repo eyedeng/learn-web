@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>move box</title>
+    <style>
+        body{
+            background-color: cadetblue;
+        }
+        .frame{
+            position: relative;
+            margin: auto;
+            /* width: 800px;
+            height: 600px; */
+            border: 1px solid black;
+            background-color: white;
+        }
+        .box{
+            position: absolute;
+            /* [0,520]
+            top: 520px;
+            [0, 720] 
+            left: 720px;
+            width: 80px;
+            height: 80px; */
+            background-color: black;
+        }
+        #intro{
+            float: left;
+        }
+        #time{
+            float: right;
+            background-color: cadetblue;
+            width: fit-content;
+            font-weight: bold;
+            /* visibility: hidden; */
+        }
+    </style>
+    <script src="scripts/jquery-3.5.0.min.js"></script>
+</head>
+
+<body>
+    <div id="intro">{W,S,A,D}: dir; {Z,X}: +,-</div>
+    <div id="time"></div>
+    <div class="frame">
+        <div class="box">
+        </div>
+    </div>
+
+
+    <script>
+        window.setInterval(function(){
+            // if($("#time").css("visibility") === "visible"){
+            //     $("#time").css("visibility", "hidden");
+            // }else{
+            //     $("#time").css("visibility", "visible");
+            // }
+            $("#time").toggle();
+            $("#time")[0].textContent = new Date().toLocaleTimeString();
+        }, 2000);
+
+        const width = 800, height = 600;
+        let size = 80;
+        let topT = height/2 - size, left = width/2 - size;
+        const step = 10, rate = 10;
+        const frame = $(".frame");
+        const box = $(".box");
+        frame.css({"width": width+"px", "height": height+"px"});
+        box.css({"top": topT+"px", "left": left+"px", "width": size+"px", "height": size+"px"});
+        document.addEventListener("keypress", function(){
+            const keyName = event.key;
+           
+            if(keyName==="ArrowUp" || keyName === "w"){
+                if(topT >= step){
+                    topT -= step;
+                    box.css("top", topT + "px");
+                }
+                // let x = parseInt(box.css("top"));
+                // if(x >= step){
+                //     for(let i=1; i<=step; i++)
+                //         box.css("top", (x - i) + "px");
+                // }
+            }
+            if(keyName ==="ArrowDown" || keyName === "s"){
+                if(topT + size + step <= height){
+                    topT += step;
+                    box.css("top", topT + "px");
+                }
+            }
+            if(keyName ==="ArrowLeft" || keyName === "a"){
+                if(left >= step){
+                    left -= step;
+                    box.css("left", left + "px");
+                }
+            }
+            if(keyName ==="ArrowRight" || keyName === "d"){
+                if(left + size + step <= width){
+                    left += step;
+                    box.css("left", left + "px");
+                }
+            }
+            if(keyName === "z"){
+                size += rate; 
+                box.css("width", size + "px");
+                box.css("height", size + "px");
+            }
+            if(keyName === "x"){
+                size -= rate;
+                box.css("width", size + "px");
+                box.css("height", size + "px");
+            }
+        });
+    </script>
+</body>
+
+</html>
