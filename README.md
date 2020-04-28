@@ -11,4 +11,4 @@ web exercise
 1. move box [Go](https://eyedeng.github.io/learn-web/game-move-box.html)
 
 #### text
- [read](https://eyedeng.github.io/learn-web/z)
+ [read](https://eyedeng.github.io/learn-web/z/)
