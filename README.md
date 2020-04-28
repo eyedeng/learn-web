@@ -1,6 +1,9 @@
 <style>
-    h{
+    h1,h2,h3,h4{
         text-align: center;
+    }
+    p{
+        color: green;
     }
 </style>    
 

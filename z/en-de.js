@@ -4,7 +4,8 @@ window.onload = function(){
     const zh_sta = 0x4e00; 
     const zh_end = 0x9fa5 + key;
 
-    let root = $("body").firstElementChild;
+    // let root = $("body").firstElementChild;
+    let root = document.getElementsByTagName("body")[0].firstElementChild
     function dfs(node){
         if(node.nodeType == 1){
             for(let i=0; i<node.childNodes.length; i++){  // childNodes:包括text
