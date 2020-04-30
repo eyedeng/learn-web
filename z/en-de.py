@@ -28,6 +28,7 @@ def main(argv):
                 code += chr(ord(c) + key) if is_enc else chr(ord(c) - key)
             elif ord(c) == no_code_s or ord(c) == no_code_e:
                 no_code_part = True if ord(c) == no_code_s else False
+                code += c
             else:
                 code += c
 
