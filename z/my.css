@@ -1,9 +1,7 @@
-.my-picdiv{
-    text-align: center;
-    margin: 1em;
-}
 .my-picp{
     color: #555; 
     font-weight: bold;
     font-style: italic;
+    text-align: center;
+    margin-bottom: 1em;
 }

@@ -5,7 +5,7 @@ window.onload = function(){
     const zh_sta = 0x4e00; 
     const zh_end = 0x9fa5 + key;
 
-    const no_code_part = false  // 非加密部分 标志
+    let no_code_part = false  // 非加密部分 标志
     const no_code_s = 8594; 
     const no_code_e = 8592;
 
