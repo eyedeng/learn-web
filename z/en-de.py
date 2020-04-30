@@ -35,7 +35,8 @@ def main(argv):
     pre = "en-" if is_enc else "de-"
     with open(pre + file_name, "w", encoding="utf-8") as f:
         f.write(code)
-
+        if is_enc:
+            f.write('\n<script src="en-de.js"></script>\n')  # 在网页加载解密脚本
 
 if __name__ == "__main__":
     main(sys.argv[1:])
